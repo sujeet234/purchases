@@ -107,7 +107,7 @@ app.get("/purchases/shops/:id", function (req, res) {
 });
 app.get("/purchases/products/:id", function (req, res) {
   let id = +req.params.id;
-  let query = `SELECT * FROM purchase WHERE productid=${id}`;
+  let query = `SELECT * FROM purchases WHERE productid=${id}`;
   // console.log(query);
   client.query(query, function (err, results) {
     if (err) {
