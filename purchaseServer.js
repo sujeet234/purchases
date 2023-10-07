@@ -185,8 +185,8 @@ app.post("/products", function (req, res) {
 });
 app.post("/shops", function (req, res) {
   let body = req.body;
-  let query = `INSERT INTO products(shopid,name,rent) VALUES($1,$2,$3)`;
-  client.query(query,[body.shopid, body.name, body.rent],function (err, results) {
+  let query = `INSERT INTO products(shopid,shopname,rent) VALUES($1,$2,$3)`;
+  client.query(query,[body.shopid, body.shopname, body.rent],function (err, results) {
       if (err) {
         console.log(err);
         res.status(404).send("Error in inserting data");
