@@ -83,9 +83,9 @@ app.get("/purchases", function (req, res) {
 
 app.get("/products/:id", function (req, res) {
   let id = +req.params.id;
-  let query = `SELECT * FROM products WHERE productid=$1`;
+  let query = `SELECT * FROM products WHERE productid=${id}`;
   console.log(query);
-  client.query(query, [id], function (err, results) {
+  client.query(query,  function (err, results) {
     if (err) {
       console.log(err);
       res.status(404).send("Error in fetching data");
