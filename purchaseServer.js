@@ -196,15 +196,15 @@ app.post("/shops", function (req, res) {
 });
 
 app.put("/products/:id", function (req, res) {
-  let productid = +req.params.id;
+  let id = +req.params.id;
   let body = req.body;
   let query = `UPDATE products SET productname=$1,category=$2,description=$3 WHERE productid=$4`;
-  let params = [body.productname, body.category, body.description, productid];
+  let params = [body.productname, body.category, body.description, id];
   client.query(query, params, function (err, results) {
     if (err) {
       console.log(err);
       res.status(404).send("Error in updation data");
-    } else res.send(results);
+    } else res.send(results.rows);
   });
 });
 
