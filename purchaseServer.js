@@ -195,8 +195,8 @@ app.post("/shops", function (req, res) {
   );
 });
 
-app.put("/products/:productid", function (req, res) {
-  let id = +req.params.productid;
+app.put("/products/:id", function (req, res) {
+  let id = +req.params.id;
   let body = req.body;
   let query = `UPDATE products SET productname=$1,category=$2,description=$3 WHERE productid=$4`;
   let params = [body.productname, body.category, body.description, id];
